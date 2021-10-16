@@ -18,7 +18,7 @@ class BoxInformation:  # To maintain data integrity class variables should not b
 	def __init__(self):
 		self.immutableList = []
 		self.procList = []
-		self.boxInfo = {}
+		self.boxInfo = {"model": "dummy"}
 		self.enigmaList = []
 		self.enigmaInfo = {}
 		lines = fileReadLines(pathjoin(resolveFilename(SCOPE_LIBDIR), "enigma.info"), source=MODULE_NAME)
