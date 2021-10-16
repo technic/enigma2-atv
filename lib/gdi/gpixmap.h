@@ -22,11 +22,7 @@ struct gRGB
 			unsigned char a, r, g, b;
 		};
 #endif
-#if defined (__aarch64__)
-		unsigned int value;
-#else
-		unsigned long value;
-#endif
+		uint32_t value;
 	};
 	gRGB(int r, int g, int b, int a=0): b(b), g(g), r(r), a(a)
 	{
@@ -160,11 +156,8 @@ struct gPalette
 {
 	int start, colors;
 	gRGB *data;
-#if defined (__aarch64__)
-	unsigned int data_phys;
-#else
-	unsigned long data_phys;
-#endif
+	uint32_t data_phys;
+
 	gColor findColor(const gRGB rgb) const;
 	gPalette():	start(0), colors(0), data(0), data_phys(0) {}
 };
