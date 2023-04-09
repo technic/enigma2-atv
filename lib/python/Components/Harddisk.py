@@ -113,6 +113,7 @@ class Harddisk:
 		elif os.access("/dev/.devfsd", 0):
 			self.type = DEVTYPE_DEVFS
 		else:
+			self.type = None
 			print("[Harddisk] Unable to determine structure of /dev")
 
 		self.max_idle_time = 0
@@ -182,6 +183,8 @@ class Harddisk:
 		elif self.type == DEVTYPE_DEVFS:
 			card = self.device[:2] == "hd" and "host0" not in self.dev_path
 			type_name = " (CF)"
+		else:
+			card = None
 
 		hw_type = HardwareInfo().get_device_name()
 		if hw_type == 'elite' or hw_type == 'premium' or hw_type == 'premium+' or hw_type == 'ultra':
